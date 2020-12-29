@@ -36,12 +36,29 @@ WrotePad is a text editor like Notepad developed in Python Tkinter.
 
 # Developer Info 
 
---> Developed by : Kavin Jindal
+-->:computer:Developed by : Kavin Jindal
 
---> Discord ID # : KJ#7320
+-->:large_blue_circle: Discord ID  : KJ#7320
 
---> email
+-->:email:Email kavinsjindal@gmail.com
 
+# Installation : 
 
+--> Download it as ZIP
+
+--> Or use the Git clone command
+* https://github.com/kavinjindal/WrotePad.git
+
+# Issues and Queries
+ 
+* Drop your issues, queries or suggestions below:
+
+--> https://github.com/kavinjindal/WrotePad/issues
+
+# Discord Server
+
+https://discord.gg/qdpd7mc
+
+# Made with :heart: by Kavin Jindal 🤘
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Naereen/)
 
