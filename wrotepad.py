@@ -3,7 +3,9 @@ from tkinter import filedialog
 import tkinter.scrolledtext as ScrolledText
 from tkinter import ttk
 import webbrowser
-
+from tkinter import font
+import psutil
+import platform
 
 root = Tk()
 root.title("WrotePad")
@@ -40,7 +42,7 @@ def open_file():
         
     name = text_file
     name = name.replace('/', '')
-    root.title(f'{name} -  Equit')
+    root.title(f'{name} -  WrotePad')
 
     text_file = open(text_file, 'r')
     stuff = text_file.read()
@@ -98,7 +100,7 @@ def github():
 
 def dev_info():
     info = Tk()
-    info.title("Equit App Info")
+    info.title('Developer Info')
     info.configure(bg='white')
     info.geometry('200x200')
     label1_info = Label(info, text='Developer : Kavin Jindal', fg='black', bg='white')
@@ -109,6 +111,29 @@ def dev_info():
     label3_info.pack()
     btn_info =Button(info, text='Kavin Jindal on Github', fg='white', bg='red', command=github)
     btn_info.pack()
+
+def app_info():
+    app = Tk()
+    app.title("WrotePad Info")
+    app.configure(bg='white')
+    app.geometry('900x200')
+    label1_app = Label(app, text=f'Python Version : {(platform.python_version)}', fg='black', bg='white')
+    label1_app.pack()
+    label2_app = Label(app, text=f'Modules : ScrolledText, TTk, Tkinter,WebBrowser, Psutil, Platform, Font', fg='black', bg='white')
+    label2_app.pack()
+    label3_app = Label(app, text=f'Released on : 29.12.2020', fg='black', bg='white')
+    label3_app.pack()
+    label4_app = Label(app, text=f'Last Updated on : 29.12.2020', fg='black', bg='white')
+    label4_app.pack()
+
+def version():
+    version = Tk()
+    version.title('WrotePad Version')
+    version.configure(bg='white')
+    version.geometry('200x200')
+    label1_version = Label(version, text='VERSION 1.1.0', fg='black', bg='white', font=('Arial', 20))
+    label1_version.pack()
+
 
 file_menu=Menu(menu, tearoff=False)
 menu.add_cascade(label="File", menu=file_menu)
@@ -132,6 +157,9 @@ edit_menu.add_command(label='Redo', command =redo)
 info_menu = Menu(menu, tearoff=False)
 menu.add_cascade(label='App Version', menu=info_menu)
 info_menu.add_command(label='Developer Info', command=dev_info)
+info_menu.add_command(label='App Info', command=app_info)
+info_menu.add_command(label='WrotePad Version', command=version)
+
 
 text = ScrolledText.ScrolledText(frame1, width=1365, height=707, font=("Arial", 20))
 text.pack()
