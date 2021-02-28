@@ -1,11 +1,19 @@
 from tkinter import *
-from tkinter import filedialog
-import tkinter.scrolledtext as ScrolledText
 from tkinter import ttk
-import webbrowser
-from tkinter import font
-import psutil
+import sys
+import re
+import time
 import platform
+import tkinter.font as font
+import tkinter.scrolledtext as ScrolledText
+from tkinter import filedialog
+from tkinter import font
+from tkinter import messagebox
+import math
+import os
+#from tkinter.ttk import *
+from tkinter.filedialog import askopenfile
+from tkinter.filedialog import asksaveasfile
 
 root = Tk()
 root.title("WrotePad")
@@ -19,27 +27,27 @@ my_notebook.pack(pady=15)
 
 
 frame1 = Frame(my_notebook, width=1365, height=707, bg="white")
-frame2 = Frame(my_notebook, width=1365, height=707, bg="white")
+#frame2 = Frame(my_notebook, width=1365, height=707, bg="white")
 
 frame1.pack(fill="both", expand=1)
-frame2.pack(fill="both", expand=1)
+#frame2.pack(fill="both", expand=1)
 
 my_notebook.add(frame1, text="Editor")
 #my_notebook.add(frame2, text="Help")
 
- 
-    
+
+
 
 
 def open_file():
     text.delete('1.0', END)
     text_file = filedialog.askopenfilename(initialdir ='/', title = 'Open Files', filetypes=[('Text Files', "*.txt")])
-    
+
     if text_file:
         global open_status_name
         open_status_name = text_file
 
-        
+
     name = text_file
     name = name.replace('/', '')
     root.title(f'{name} -  WrotePad')
@@ -69,7 +77,7 @@ def save_as_file():
 
 def new_window():
     pass
-    
+
 
 def cut_text(e):
     global selected
@@ -123,7 +131,7 @@ def app_info():
     label2_app.pack()
     label3_app = Label(app, text=f'Released on : 29.12.2020', fg='black', bg='white')
     label3_app.pack()
-    label4_app = Label(app, text=f'Last Updated on : 29.12.2020', fg='black', bg='white')
+    label4_app = Label(app, text=f'Last Updated on : 26.02.2021', fg='black', bg='white')
     label4_app.pack()
 
 def version():
@@ -161,7 +169,8 @@ info_menu.add_command(label='App Info', command=app_info)
 info_menu.add_command(label='WrotePad Version', command=version)
 
 
-text = ScrolledText.ScrolledText(frame1, width=1365, height=707, font=("Arial", 20))
+text = ScrolledText.ScrolledText(frame1, width=101, height=30, font=("Arial", 20), selectbackground='yellow',
+selectforeground='black', borderwidth=1, undo=True)
 text.pack()
 
 #label1 = Label(frame2, text="Program Help", bg="white", fg="black", font=("Arial", 40))
